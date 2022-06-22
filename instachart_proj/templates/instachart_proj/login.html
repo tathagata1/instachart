@@ -1,0 +1,21 @@
+{% extends 'instachart_proj/main.html' %}
+
+{% block content %}
+<div class="b-example-divider"></div>
+
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            {% load static %} <img src="{% static 'images/login-image.png' %}" class="d-block mx-lg-auto img-fluid"
+                alt="diagram image" width="70%" height="70%" loading="lazy" />
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">The simplest chart maker ever. Period.</h1>
+            <p class="lead">No painting. No drag-n-drop. No alignments. Just type
+                stuff in and watch it happen.</p>
+        </div>
+    </div>
+</div>
+
+<div class="b-example-divider"></div>
+{% endblock %}

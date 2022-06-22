@@ -1,0 +1,84 @@
+{% extends 'instachart_proj/main.html' %}
+
+{% block content %}
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            {% load static %} <img src="{% static 'images/login-image.png' %}" class="d-block mx-lg-auto img-fluid"
+                alt="diagram image" width="70%" height="70%" loading="lazy" />
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">Lets get started !!</h1>
+            <button type="button" class="btn btn-outline-primary btn-lg">Start Flowchart</button>
+            <button type="button" class="btn btn-outline-primary btn-lg">Start Diagram</button>
+            <button type="button" class="btn btn-outline-primary btn-lg">Upload</button>
+        </div>
+    </div>
+</div>
+
+<div class="b-example-divider"></div>
+
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="btn-group " role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"><label
+                class="btn btn-outline-primary" for="btnradio1">Cloud</label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"><label
+                class="btn btn-outline-primary" for="btnradio2">On Premise</label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off"><label
+                class="btn btn-outline-primary" for="btnradio3">Hybrid</label>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <input type="checkbox" class="btn-check" name="checkbox1" id="checkbox1" autocomplete="off"><label
+                class="btn btn-outline-primary" for="checkbox1">Network Switch</label>
+            <input type="checkbox" class="btn-check" name="checkbox2" id="checkbox2" autocomplete="off"><label
+                class="btn btn-outline-primary" for="checkbox2">Load Balancer</label>
+            <input type="checkbox" class="btn-check" name="checkbox3" id="checkbox3" autocomplete="off"><label
+                class="btn btn-outline-primary" for="checkbox3">Web Server</label>
+            <input type="checkbox" class="btn-check" name="checkbox4" id="checkbox4" autocomplete="off"><label
+                class="btn btn-outline-primary" for="checkbox4">Application Server</label>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <input type="checkbox" class="btn-check" name="checkbox5" id="checkbox5" autocomplete="off"><label
+                class="btn btn-outline-primary" for="checkbox5">Database Server</label>
+            <input type="checkbox" class="btn-check" name="checkbox6" id="checkbox6" autocomplete="off"><label
+                class="btn btn-outline-primary" for="checkbox6">Black-box Device</label>
+            <input type="checkbox" class="btn-check" name="checkbox7" id="checkbox7" autocomplete="off"><label
+                class="btn btn-outline-primary" for="checkbox7">Users</label>
+            <input type="checkbox" class="btn-check" name="checkbox8" id="checkbox8" autocomplete="off"><label
+            id="addRow" class="btn btn-outline-primary" for="checkbox8">Lan Drive</label>
+        </div>
+        <table>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="addRow" type="button" class="btn btn-primary">Add Tier</button>
+    </div>
+</div>
+
+
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    var html2 = '<tr><td>'
+        + '<button type="button" class="btn-close btn-danger remove" aria-label="Close"/><span class="btn btn-default" id="basic-addon2">Move</span>'
+        + '<div class="btn-group"><button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Component Type</button><ul class="dropdown-menu"><li><a class="dropdown-item">Apache</a></li><li><a class="dropdown-item">Tomcat</a></li><li><a class="dropdown-item">LB</a></li></ul></div>'
+        + '<div class="input-group mb-3"><input type="text" class="form-control" placeholder="Recipients username" aria-label="Recipients username" aria-describedby="basic-addon2"></div>'
+        + '</td></tr>';
+
+    $(function () {
+        $('tbody').sortable();
+
+        $('#addRow').click(function () {
+            $('tbody').append(html2);
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+
+        $(document).on('click', '.remove', function () {
+            $(this).parents('tr').remove();
+        });
+    });
+</script>
+{% endblock %}
